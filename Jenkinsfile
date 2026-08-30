@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building application...'
-                python3 -m py_compile app/app.py
+                sh 'python3 -m py_compile app/app.py'
                 echo 'Build completed successfully.'
             }
         }
@@ -21,7 +21,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                python3 -m pytest tests/
+                sh 'python3 -m pytest tests/'
                 echo 'All tests passed successfully.'
             }
         }
@@ -37,4 +37,3 @@ pipeline {
         }
     }
 }
-
