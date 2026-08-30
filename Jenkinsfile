@@ -20,9 +20,14 @@ pipeline {
 
         stage('Test') {
             steps {
+                echo 'Creating Python virtual environment...'
+                sh 'python3 -m venv .venv'
+
+                echo 'Installing dependencies...'
+                sh '.venv/bin/pip install -r requirements.txt'
+
                 echo 'Running tests...'
-                sh 'python3 -m pytest tests/'
-                echo 'All tests passed successfully.'
+                sh '.venv/bin/pytest tests/'
             }
         }
     }
