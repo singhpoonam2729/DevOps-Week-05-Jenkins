@@ -27,7 +27,7 @@ pipeline {
                 sh '.venv/bin/pip install -r requirements.txt'
 
                 echo 'Running tests...'
-                sh '.venv/bin/pytest tests/'
+               sh '.venv/bin/python -m pytest tests/'
             }
         }
     }
